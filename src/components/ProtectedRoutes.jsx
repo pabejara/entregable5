@@ -7,7 +7,7 @@ const ProtectedRoutes = () => {
 
   const trainer = useSelector(state => state.trainer)
 
-  if(trainer){
+  if (trainer) {
     return (
       <>
         <HeaderPoke />

@@ -15,9 +15,8 @@ const Pokedex = () => {
 
   const navigate = useNavigate()
 
-
   useEffect(() => {
-    if(typeSelected !== "All pokemons"){
+    if (typeSelected !== "All pokemons") {
       // hacer la petición de los pokemons por tipo
       axios.get(typeSelected)
         .then(res => setPokemons(res.data.pokemon.map(e => e.pokemon)))
@@ -30,7 +29,6 @@ const Pokedex = () => {
         .catch(err => console.log(err))
     }
   }, [typeSelected])
-
 
   useEffect(() => {
     const URL = 'https://pokeapi.co/api/v2/type'
@@ -50,53 +48,50 @@ const Pokedex = () => {
     setPage(1)
   }
 
+  // Lógica de paginación
+  const [page, setPage] = useState(1)
+  const [pokePerPage, setpokePerPage] = useState(8)
+  const initialPoke = (page - 1) * pokePerPage
+  const finalPoke = page * pokePerPage
+  const maxPage = pokemons && Math.ceil(pokemons.length / pokePerPage)
 
- // Lógica de paginación
- const [page, setPage] = useState(1)
- const [pokePerPage, setpokePerPage] = useState(8)
- const initialPoke = (page - 1) * pokePerPage
- const finalPoke = page * pokePerPage
- const maxPage = pokemons && Math.ceil(pokemons.length / pokePerPage)
-
-
-
- return (
-  <div>
-    <h2>Welcome {trainer}, here you can find your favorite pokemon.</h2>
-    <form onSubmit={handleSubmit}>
-      <input id='search' type="text" />
-      <button>Search</button>
-    </form>
-    <select onChange={handleChange}>
-      <option value='All pokemons'>All pokemons</option>
-      {
-        types?.map(type => (
-          <option key={type.url} value={type.url}>{type.name}</option>
-        ))
-      }
-    </select>
-    <Pagination 
-      page={page} 
-      maxPage={maxPage}
-      setPage={setPage}
-    />
-    <div className='poke-container'>
-      {
-        pokemons?.slice(initialPoke, finalPoke).map(poke => (
-          <PokeCard 
-            key={poke.url} 
-            url={poke.url}
-          />
-        ))
-      }
+  return (
+    <div>
+      <h2>Welcome {trainer}, here you can find your favorite pokemon.</h2>
+      <form onSubmit={handleSubmit}>
+        <input id='search' type="text" />
+        <button>Search</button>
+      </form>
+      <select onChange={handleChange}>
+        <option value='All pokemons'>All pokemons</option>
+        {
+          types?.map(type => (
+            <option key={type.url} value={type.url}>{type.name}</option>
+          ))
+        }
+      </select>
+      <Pagination
+        page={page}
+        maxPage={maxPage}
+        setPage={setPage}
+      />
+      <div className='poke-container'>
+        {
+          pokemons?.slice(initialPoke, finalPoke).map(poke => (
+            <PokeCard
+              key={poke.url}
+              url={poke.url}
+            />
+          ))
+        }
+      </div>
+      <Pagination
+        page={page}
+        maxPage={maxPage}
+        setPage={setPage}
+      />
     </div>
-    <Pagination 
-      page={page} 
-      maxPage={maxPage}
-      setPage={setPage}
-    />
-  </div>
-)
+  )
 }
 
 export default Pokedex

@@ -1,22 +1,22 @@
 import axios from 'axios'
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './styles/pokeInfo.css'
 
 const PokedexInfo = () => {
 
-const {id} = useParams()
+  const { id } = useParams()
 
-const [pokemon, setPokemon] = useState()
+  const [pokemon, setPokemon] = useState()
 
-useEffect(() => {
-  const URL = `https://pokeapi.co/api/v2/pokemon/${id}`
-  axios.get(URL)
-    .then(res => setPokemon(res.data))
-    .catch(err => console.log(err))
-}, [id])
+  useEffect(() => {
+    const URL = `https://pokeapi.co/api/v2/pokemon/${id}`
+    axios.get(URL)
+      .then(res => setPokemon(res.data))
+      .catch(err => console.log(err))
+  }, [id])
 
-console.log(pokemon)
+  console.log(pokemon)
 
   return (
     <div className='poke__info' >

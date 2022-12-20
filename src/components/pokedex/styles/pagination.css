@@ -2,6 +2,7 @@
     display: flex;
     gap: 10px;
 }
+
 .pagination__item {
     width: 40px;
     aspect-ratio: 1;

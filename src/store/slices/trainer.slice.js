@@ -7,6 +7,6 @@ const trainerSlice = createSlice({
         setTrainerGlobal: (state, action) => action.payload
     }
 })
- export const {setTrainerGlobal} = trainerSlice.actions
+export const { setTrainerGlobal } = trainerSlice.actions
 
 export default trainerSlice.reducer
