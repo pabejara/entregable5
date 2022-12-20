@@ -1,0 +1,11 @@
+.poke__info {
+    width: 100%;
+    max-width: 330px;
+    border-radius: 0.7em;
+    border: 0.4em solid #87aa3b;
+    height: 320px;
+    position: relative;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
