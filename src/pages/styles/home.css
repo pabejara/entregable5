@@ -1,0 +1,26 @@
+.home__ini {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.home__img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 1em;
+}
+
+.home__btn {
+    background-color: red;
+    color: white;
+}
+
+.home__trainer {
+    padding-bottom: 1em;
+}
+
+.hom__msj {
+    padding-bottom: 1em;
+}

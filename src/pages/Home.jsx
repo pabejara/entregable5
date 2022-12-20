@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { setTrainerGlobal } from '../store/slices/trainer.slice'
+import './styles/home.css'
 
 const Home = () => {
 
@@ -16,13 +17,13 @@ const Home = () => {
   }
 
   return (
-    <div>
-      <img src="/Home/pokedex.png" alt="" />
-      <h1>Hi trainer</h1>
-      <p>give me your name to start</p>
+    <div className='home__ini' >
+      <img className='home__img' src="/Home/pokedex.png" alt="" />
+      <h1 className='home__trainer' >Hi trainer</h1>
+      <p className='hom__msj' >give me your name to start</p>
       <form onSubmit={handleSubmit} action="">
         <input id='name' type="text" />
-        <button>start</button>
+        <button className='home__btn' >start</button>
       </form>
     </div>
   )

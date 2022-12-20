@@ -1,0 +1,40 @@
+.pokedex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0.3em;
+    gap: 0.3em;
+}
+
+.pokedex__welcome {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pokedex__form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1em;
+}
+
+.pokedex__btn {
+    color: white;
+    background-color: red;
+}
+
+.pokedex__option {
+    color: white;
+    background-color: red;
+}
+
+.pokedex__combo {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

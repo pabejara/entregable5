@@ -3,6 +3,13 @@
   max-width: 330px;
   border-radius: 0.7em;
   border: 0.4em solid #87aa3b;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 200ms ease;
+}
+
+.poke-card:hover {
+  transform: scale(1.05);
 }
 
 .poke-card__header {

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Pagination from '../components/pokedex/Pagination'
 import PokeCard from '../components/pokedex/PokeCard'
+import './styles/pokedex.css'
 
 const Pokedex = () => {
 
@@ -57,25 +58,28 @@ const Pokedex = () => {
 
   return (
     <div>
-      <h2>Welcome {trainer}, here you can find your favorite pokemon.</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className='pokedex__welcome' >Welcome {trainer}, here you can find your favorite pokemon.</h2>
+      <form className='pokedex__form' onSubmit={handleSubmit}>
         <input id='search' type="text" />
-        <button>Search</button>
+        <button className='pokedex__btn' >Search</button>
       </form>
-      <select onChange={handleChange}>
-        <option value='All pokemons'>All pokemons</option>
-        {
-          types?.map(type => (
-            <option key={type.url} value={type.url}>{type.name}</option>
-          ))
-        }
-      </select>
+      <div className='pokedex__combo' >
+        <select className='pokedex__select' onChange={handleChange}>
+          <option className='pokedex__option' value='All pokemons'>All pokemons</option>
+          {
+            types?.map(type => (
+              <option key={type.url} value={type.url}>{type.name}</option>
+            ))
+          }
+        </select>
+      </div>
+
       <Pagination
         page={page}
         maxPage={maxPage}
         setPage={setPage}
       />
-      <div className='poke-container'>
+      <div className='pokedex-container'>
         {
           pokemons?.slice(initialPoke, finalPoke).map(poke => (
             <PokeCard
