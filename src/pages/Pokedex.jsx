@@ -2,8 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import Pagination from '../components/Pokedex/Pagination'
-import PokeCard from '../components/Pokedex/PokeCard'
+import Pagination from '../components/pokedex/Pagination'
+import PokeCard from '../components/pokedex/PokeCard'
 
 const Pokedex = () => {
 
